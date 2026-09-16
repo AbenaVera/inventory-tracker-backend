@@ -19,6 +19,12 @@ app.post('/items', (req, res) => {
     res.json(newItems);
 });
 
+app.delete('/items/:index', (req, res) => {
+    const index = req.params.index;
+    items.splice(index, 1);
+    res.json({ message: 'Item deleted' });
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
